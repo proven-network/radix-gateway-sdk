@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{LedgerStateMixin, NonFungibleResourcesCollectionItemVaultAggregatedVault};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityNonFungibleResourceVaultsPageResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

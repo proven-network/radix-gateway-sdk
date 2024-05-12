@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::ScryptoSborValue;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateKeyValueStoreKeysResponseItem {
     pub key: ScryptoSborValue,
     ///The most recent state version underlying object was modified at.

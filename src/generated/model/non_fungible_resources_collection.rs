@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::{NonFungibleResourcesCollectionItem, ResultSetCursorMixin};
 ///Non-fungible resources collection.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct NonFungibleResourcesCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

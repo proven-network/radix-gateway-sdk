@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::EntityMetadataItemValue;
 ///Entity metadata key-value pair.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EntityMetadataItem {
     pub is_locked: bool,
     ///Entity metadata key.

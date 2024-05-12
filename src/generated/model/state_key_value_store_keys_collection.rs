@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::{ResultSetCursorMixin, StateKeyValueStoreKeysResponseItem};
 ///Key value store items collection.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateKeyValueStoreKeysCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{LedgerStateMixin, StateKeyValueStoreDataResponseItem};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateKeyValueStoreDataResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

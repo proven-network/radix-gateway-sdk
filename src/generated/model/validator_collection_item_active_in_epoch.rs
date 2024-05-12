@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::PublicKey;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct ValidatorCollectionItemActiveInEpoch {
     pub key: PublicKey,
     ///String-encoded decimal representing the amount of a related fungible resource.

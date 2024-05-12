@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StreamTransactionsRequestEventFilterItem {
     ///Bech32m-encoded human readable version of the address.
     #[serde(default, skip_serializing_if = "Option::is_none")]

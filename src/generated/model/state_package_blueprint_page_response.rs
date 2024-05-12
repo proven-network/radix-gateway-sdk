@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{LedgerStateMixin, PackageBlueprintCollection};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StatePackageBlueprintPageResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct NetworkConfigurationResponse {
     ///The logical id of the network
     pub network_id: i64,

@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{CommittedTransactionInfo, LedgerStateMixin, ResultSetCursorMixin};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StreamTransactionsResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

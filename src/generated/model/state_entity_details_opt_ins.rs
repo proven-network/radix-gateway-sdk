@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 ///Check detailed [OptIns](#section/Using-endpoints-with-opt-in-features) documentation for more details
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityDetailsOptIns {
     ///if set to `true`, ancestor addresses - `parent_address`, `owner_address` and `global_address` for entities are returned.
     #[serde(default, skip_serializing_if = "Option::is_none")]

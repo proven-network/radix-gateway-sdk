@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::AccountResourcePreferenceRule;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct AccountDepositPreValidationDecidingFactorsResourceSpecificDetailsItem {
     pub is_xrd: bool,
     ///Bech32m-encoded human readable version of the address.

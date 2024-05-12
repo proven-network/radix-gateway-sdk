@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{EventsItem, TransactionStatus};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionReceipt {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub costing_parameters: Option<serde_json::Value>,

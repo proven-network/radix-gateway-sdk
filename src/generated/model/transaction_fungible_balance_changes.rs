@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionFungibleBalanceChanges {
     ///The string-encoded decimal representing the amount of change for the fungible resource.
     pub balance_change: String,

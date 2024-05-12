@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{MetadataTypedValue, ScryptoSborValue};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EntityMetadataItemValue {
     #[serde(flatten)]
     pub scrypto_sbor_value: ScryptoSborValue,

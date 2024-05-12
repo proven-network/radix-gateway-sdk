@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionNonFungibleBalanceChanges {
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub added: Vec<String>,

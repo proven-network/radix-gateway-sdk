@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::ProgrammaticScryptoSborValue;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct ScryptoSborValue {
     pub programmatic_json: ProgrammaticScryptoSborValue,
     ///Hex-encoded binary blob.

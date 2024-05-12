@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{FungibleResourcesCollection, LedgerStateMixin};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityFungiblesPageResponse {
     ///Fungible resources collection.
     #[serde(flatten)]

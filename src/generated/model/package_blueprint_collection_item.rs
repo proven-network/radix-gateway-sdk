@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::BlueprintRoyaltyConfig;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct PackageBlueprintCollectionItem {
     ///This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details.
     #[serde(default, skip_serializing_if = "Option::is_none")]

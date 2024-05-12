@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{LedgerStateMixin, ValidatorUptimeCollection};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct ValidatorsUptimeResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

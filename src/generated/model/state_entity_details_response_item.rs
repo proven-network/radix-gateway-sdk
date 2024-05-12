@@ -4,7 +4,7 @@ use super::{
     NonFungibleResourcesCollection, StateEntityDetailsResponseItemAncestorIdentities,
     StateEntityDetailsResponseItemDetails,
 };
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityDetailsResponseItem {
     ///Bech32m-encoded human readable version of the address.
     pub address: String,

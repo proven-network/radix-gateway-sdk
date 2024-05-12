@@ -2,7 +2,7 @@ use serde::{Serialize, Deserialize};
 use super::{
     NonFungibleResourcesCollectionItemVaultAggregatedVaultItem, ResultSetCursorMixin,
 };
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct NonFungibleResourcesCollectionItemVaultAggregatedVault {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

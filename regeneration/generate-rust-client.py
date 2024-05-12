@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import urllib.request, logging, subprocess, os, shutil, re, yaml, urllib
+import urllib.request, logging, subprocess, os, shutil, re, yaml, urllib, json
 
 # Inspired by https://github.com/radixdlt/radixdlt-python-clients
 # Requires python 3+ and `pip install pyyaml`
@@ -40,11 +40,11 @@ def create_file(filename, file_contents):
 def copy_file(source, dest):
     shutil.copyfile(source, dest)
 
-def run(command, cwd = '.', should_log = False):
+def run(command, cwd = '.', should_log = False, ignore_errors = False):
     if (should_log): logging.debug('Running cmd: %s' % command)
     response = subprocess.run(' '.join(command), cwd=cwd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stderr = response.stderr.decode('utf-8')
-    if response.returncode != 0: raise Exception(stderr)
+    if not ignore_errors and response.returncode != 0: raise Exception(stderr)
     stdout = response.stdout.decode('utf-8')
     if (should_log): logging.debug('Response: %s', stdout)
     return stdout
@@ -170,9 +170,6 @@ def generate_models(prepared_spec_file, tmp_client_folder, out_location):
                 count = find_in_file_multiline(os.path.join(root, file), ", Clone")
                 if len(count) > 1:
                     replace_in_file(os.path.join(root, file), ", Clone", "")
-                # Go through each line and if Default trait is found remove it
-                replace_in_file(os.path.join(root, file), ", Default", "")
-                replace_in_file(os.path.join(root, file), "Default, ", "")
                 # Append newline to the end of the file
                 with open(os.path.join(root, file), 'a') as f:
                     f.write("\n")
@@ -201,6 +198,19 @@ def generate_models(prepared_spec_file, tmp_client_folder, out_location):
     safe_os_remove(out_location, silent=True)
     shutil.copytree(os.path.join(tmp_client_folder, "src"), out_location)
     safe_os_remove(tmp_client_folder, silent=True)
+
+    # This is a workaround for the issue with the generated code where the Default trait is not satisfied by a child struct
+    # TODO: Should probably perform this in the temp folder instead of the final destination
+    while True:
+        check_output = run(['cargo', 'check', '--message-format=json', '-q'], ignore_errors = True)
+        if "Default` is not satisfied" not in check_output:
+            break
+        for line in check_output.splitlines():
+            if "Default` is not satisfied" in line:
+                json_output = json.loads(line)
+                target_file = os.path.join("..", json_output["message"]["spans"][0]["file_name"])
+                replace_in_file(target_file, ", Default", "")
+                replace_in_file(target_file, "Default, ", "")
 
 if __name__ == "__main__":
     logger.info('Will generate models from the API specifications')

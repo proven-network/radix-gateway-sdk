@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{LedgerStateMixin, NonFungibleResourcesCollection};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityNonFungiblesPageResponse {
     #[serde(flatten)]
     pub ledger_state_mixin: LedgerStateMixin,

@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::BlueprintMethodRoyalty;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct BlueprintRoyaltyConfig {
     pub is_enabled: bool,
     ///The royalty rules by method. The array is only present if royalties are enabled.

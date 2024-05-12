@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{EntityMetadataCollection, LedgerStateMixin};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityMetadataPageResponse {
     ///Entity metadata collection.
     #[serde(flatten)]

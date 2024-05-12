@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::ScryptoSborValue;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateKeyValueStoreDataResponseItem {
     pub is_locked: bool,
     pub key: ScryptoSborValue,

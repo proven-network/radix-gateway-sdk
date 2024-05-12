@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 /**The ledger state against which the response was generated.
 Can be used to detect if the Network Gateway is returning up-to-date information.*/
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct LedgerState {
     ///The epoch number of the ledger at this state version.
     pub epoch: i64,

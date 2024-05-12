@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionDetailsOptIns {
     ///if set to `true`, all affected global entities by given transaction are returned.
     #[serde(default, skip_serializing_if = "Option::is_none")]

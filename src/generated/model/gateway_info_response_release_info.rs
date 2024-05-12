@@ -1,5 +1,5 @@
 use serde::{Serialize, Deserialize};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct GatewayInfoResponseReleaseInfo {
     ///Image tag that is currently deployed to the Gateway API.
     pub image_tag: String,

@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::{AccountAuthorizedDepositorsResponseItem, ResultSetCursorMixin};
 ///Account resource preferences collection
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct AccountAuthorizedDepositorsCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{EntitySchemaCollectionItem, ResultSetCursorMixin};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EntitySchemaCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

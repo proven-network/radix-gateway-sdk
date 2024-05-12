@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::OptionalNonFungibleIdsCollection;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct NonFungibleResourcesCollectionItemVaultAggregatedVaultItem {
     ///Non-fungible resource IDs collection.
     #[serde(flatten)]

@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::{PackageCodeCollectionItem, ResultSetCursorMixin};
 ///Package code collection.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct PackageCodeCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

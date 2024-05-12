@@ -3,7 +3,7 @@ use super::{
     TransactionFungibleBalanceChanges, TransactionFungibleFeeBalanceChanges,
     TransactionNonFungibleBalanceChanges,
 };
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionBalanceChanges {
     ///A list of all non-fee-related fungible balance changes per entity and resource.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]

@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::ProgrammaticScryptoSborValue;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct EventsItem {
     pub data: ProgrammaticScryptoSborValue,
     ///This type is defined in the Core API as `EventEmitterIdentifier`. See the Core API documentation for more details.

@@ -1,7 +1,7 @@
 use serde::{Serialize, Deserialize};
 use super::{FungibleResourcesCollectionItem, ResultSetCursorMixin};
 ///Fungible resources collection.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct FungibleResourcesCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

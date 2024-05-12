@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::RoyaltyAmount;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct ComponentMethodRoyalty {
     pub method_name: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]

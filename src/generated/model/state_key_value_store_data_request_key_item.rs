@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::ProgrammaticScryptoSborValue;
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateKeyValueStoreDataRequestKeyItem {
     ///Hex-encoded binary blob.
     #[serde(default, skip_serializing_if = "Option::is_none")]

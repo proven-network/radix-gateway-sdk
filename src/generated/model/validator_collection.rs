@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{ResultSetCursorMixin, ValidatorCollectionItem};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct ValidatorCollection {
     #[serde(flatten)]
     pub result_set_cursor_mixin: ResultSetCursorMixin,

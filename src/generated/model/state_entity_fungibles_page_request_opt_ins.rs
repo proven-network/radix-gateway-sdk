@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 ///Check detailed [OptIns](#section/Using-endpoints-with-opt-in-features) documentation for more details
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct StateEntityFungiblesPageRequestOptIns {
     ///allows specifying explicitly metadata properties which should be returned in response, limited to max 20 items.
     #[serde(default, skip_serializing_if = "Option::is_none")]

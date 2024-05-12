@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
 use super::{Log, ResourceChange};
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 pub struct TransactionPreviewResponse {
     ///Hex-encoded binary blob.
     pub encoded_receipt: String,
