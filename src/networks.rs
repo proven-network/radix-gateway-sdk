@@ -23,6 +23,29 @@ pub enum Network {
     Simulator = 0xf2,
 }
 
+impl Network {
+    pub fn from_network_id(network_id: u8) -> Option<Self> {
+        match network_id {
+            0x01 => Some(Network::Mainnet),
+            0x02 => Some(Network::Stokenet),
+            0x0a => Some(Network::Alphanet),
+            0x0b => Some(Network::Betanet),
+            0x0c => Some(Network::Kisharnet),
+            0x0e => Some(Network::Zabanet),
+            0x20 => Some(Network::Gilganet),
+            0x21 => Some(Network::Enkinet),
+            0x22 => Some(Network::Hammunet),
+            0x23 => Some(Network::Nergalnet),
+            0x24 => Some(Network::Mardunet),
+            0x25 => Some(Network::Dumunet),
+            0xf0 => Some(Network::LocalNet),
+            0xf1 => Some(Network::InternalTestNet),
+            0xf2 => Some(Network::Simulator),
+            _ => None,
+        }
+    }
+}
+
 pub struct NetworkConfig {
     pub network_name: &'static str,
     pub network_id: Network,
