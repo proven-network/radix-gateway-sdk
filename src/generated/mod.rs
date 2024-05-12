@@ -164,6 +164,27 @@ Returns overall transaction status and all of its known payloads based on suppli
             },
         }
     }
+    /**PreValidate deposit of resources to an account
+
+Helper endpoint that allows pre-validation if a deposit of certain resources to a given account can succeed or not. It is only meant for pre-validation usage, it does not guarantee that execution will succeed.*/
+    pub fn account_deposit_pre_validation(
+        &self,
+        account_address: &str,
+        badge: TransactionAccountDepositPreValidationAuthorizedDepositorBadge,
+        resource_addresses: &[&str],
+    ) -> FluentRequest<'_, request::AccountDepositPreValidationRequest> {
+        FluentRequest {
+            client: self,
+            params: request::AccountDepositPreValidationRequest {
+                account_address: account_address.to_owned(),
+                badge,
+                resource_addresses: resource_addresses
+                    .iter()
+                    .map(|&x| x.to_owned())
+                    .collect(),
+            },
+        }
+    }
     /**Get Transactions Stream
 
 Returns transactions which have been committed to the ledger.
@@ -203,6 +224,11 @@ Returns transactions which have been committed to the ledger.
                     .collect(),
                 manifest_accounts_withdrawn_from_filter: args
                     .manifest_accounts_withdrawn_from_filter
+                    .iter()
+                    .map(|&x| x.to_owned())
+                    .collect(),
+                manifest_badges_presented_filter: args
+                    .manifest_badges_presented_filter
                     .iter()
                     .map(|&x| x.to_owned())
                     .collect(),
@@ -247,6 +273,24 @@ The returned response is in a paginated format, ordered by first appearance on t
         FluentRequest {
             client: self,
             params: request::EntityMetadataPageRequest {
+                address: address.to_owned(),
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+            },
+        }
+    }
+    /**Get Entity Schema Page
+
+Returns all the schemas associated with a given global entity.
+The returned response is in a paginated format, ordered by first appearance on the ledger.*/
+    pub fn entity_schema_page(
+        &self,
+        address: &str,
+    ) -> FluentRequest<'_, request::EntitySchemaPageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::EntitySchemaPageRequest {
                 address: address.to_owned(),
                 at_ledger_state: None,
                 cursor: None,
@@ -466,6 +510,76 @@ Returns data (value) associated with a given key of a given key-value store.
             params: request::StateValidatorsListRequest {
                 at_ledger_state: None,
                 cursor: None,
+            },
+        }
+    }
+    /**Get Account resource preferences
+
+Returns paginable collection of resource preference rules for given account.*/
+    pub fn account_resource_preferences_page(
+        &self,
+        account_address: &str,
+    ) -> FluentRequest<'_, request::AccountResourcePreferencesPageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::AccountResourcePreferencesPageRequest {
+                account_address: account_address.to_owned(),
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+            },
+        }
+    }
+    /**Get Account authorized depositors
+
+Returns paginable collection of authorized depositors for given account.*/
+    pub fn account_authorized_depositors_page(
+        &self,
+        account_address: &str,
+    ) -> FluentRequest<'_, request::AccountAuthorizedDepositorsPageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::AccountAuthorizedDepositorsPageRequest {
+                account_address: account_address.to_owned(),
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+            },
+        }
+    }
+    /**Get Package Blueprints Page
+
+Returns all the blueprints associated with a given package entity.
+The returned response is in a paginated format, ordered by first appearance on the ledger.*/
+    pub fn package_blueprint_page(
+        &self,
+        package_address: &str,
+    ) -> FluentRequest<'_, request::PackageBlueprintPageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::PackageBlueprintPageRequest {
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+                package_address: package_address.to_owned(),
+            },
+        }
+    }
+    /**Get Package Codes Page
+
+Returns all the codes associated with a given package entity.
+The returned response is in a paginated format, ordered by first appearance on the ledger.*/
+    pub fn package_code_page(
+        &self,
+        package_address: &str,
+    ) -> FluentRequest<'_, request::PackageCodePageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::PackageCodePageRequest {
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+                package_address: package_address.to_owned(),
             },
         }
     }

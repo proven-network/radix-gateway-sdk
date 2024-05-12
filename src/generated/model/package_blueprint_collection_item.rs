@@ -1,6 +1,7 @@
 use serde::{Serialize, Deserialize};
+use super::BlueprintRoyaltyConfig;
 #[derive(Debug, Serialize, Deserialize)]
-pub struct StateEntityDetailsResponsePackageDetailsBlueprintItem {
+pub struct PackageBlueprintCollectionItem {
     ///This type is defined in the Core API as `AuthConfig`. See the Core API documentation for more details.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub auth_template: Option<serde_json::Value>,
@@ -12,14 +13,13 @@ pub struct StateEntityDetailsResponsePackageDetailsBlueprintItem {
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub dependant_entities: Option<Vec<String>>,
     pub name: String,
-    ///This type is defined in the Core API as `BlueprintRoyaltyConfig`. See the Core API documentation for more details.
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub royalty_config: Option<serde_json::Value>,
+    pub royalty_config: Option<BlueprintRoyaltyConfig>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub royalty_config_is_locked: Option<bool>,
     pub version: String,
 }
-impl std::fmt::Display for StateEntityDetailsResponsePackageDetailsBlueprintItem {
+impl std::fmt::Display for PackageBlueprintCollectionItem {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
         write!(f, "{}", serde_json::to_string(self).unwrap())
     }

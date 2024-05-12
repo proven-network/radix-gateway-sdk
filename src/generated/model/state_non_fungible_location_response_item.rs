@@ -9,6 +9,12 @@ pub struct StateNonFungibleLocationResponseItem {
     ///Bech32m-encoded human readable version of the address.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub owning_vault_address: Option<String>,
+    ///Bech32m-encoded human readable version of the address.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub owning_vault_global_ancestor_address: Option<String>,
+    ///Bech32m-encoded human readable version of the address.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub owning_vault_parent_ancestor_address: Option<String>,
 }
 impl std::fmt::Display for StateNonFungibleLocationResponseItem {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {

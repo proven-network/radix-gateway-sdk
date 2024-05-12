@@ -20,6 +20,7 @@ pub struct StreamTransactionsRequest {
     pub limit_per_page: Option<i64>,
     pub manifest_accounts_deposited_into_filter: Vec<String>,
     pub manifest_accounts_withdrawn_from_filter: Vec<String>,
+    pub manifest_badges_presented_filter: Vec<String>,
     pub manifest_class_filter: serde_json::Value,
     pub manifest_resources_filter: Vec<String>,
     pub opt_ins: TransactionDetailsOptIns,
@@ -34,6 +35,7 @@ pub struct StreamTransactionsRequired<'a> {
     pub kind_filter: &'a str,
     pub manifest_accounts_deposited_into_filter: &'a [&'a str],
     pub manifest_accounts_withdrawn_from_filter: &'a [&'a str],
+    pub manifest_badges_presented_filter: &'a [&'a str],
     pub manifest_class_filter: serde_json::Value,
     pub manifest_resources_filter: &'a [&'a str],
     pub opt_ins: TransactionDetailsOptIns,
@@ -116,6 +118,13 @@ impl<'a> ::std::future::IntoFuture for FluentRequest<'a, StreamTransactionsReque
                     json!(
                         { "manifest_accounts_withdrawn_from_filter" : self.params
                         .manifest_accounts_withdrawn_from_filter }
+                    ),
+                );
+            r = r
+                .json(
+                    json!(
+                        { "manifest_badges_presented_filter" : self.params
+                        .manifest_badges_presented_filter }
                     ),
                 );
             r = r
