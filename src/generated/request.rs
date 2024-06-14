@@ -25,6 +25,8 @@ pub mod account_resource_preferences_page;
 pub mod account_authorized_depositors_page;
 pub mod package_blueprint_page;
 pub mod package_code_page;
+pub mod account_locker_vaults_page;
+pub mod account_lockers_touched_at;
 pub mod validators_uptime;
 pub use gateway_status::GatewayStatusRequest;
 pub use network_configuration::NetworkConfigurationRequest;
@@ -53,4 +55,6 @@ pub use account_resource_preferences_page::AccountResourcePreferencesPageRequest
 pub use account_authorized_depositors_page::AccountAuthorizedDepositorsPageRequest;
 pub use package_blueprint_page::PackageBlueprintPageRequest;
 pub use package_code_page::PackageCodePageRequest;
+pub use account_locker_vaults_page::AccountLockerVaultsPageRequest;
+pub use account_lockers_touched_at::AccountLockersTouchedAtRequest;
 pub use validators_uptime::ValidatorsUptimeRequest;

@@ -583,6 +583,42 @@ The returned response is in a paginated format, ordered by first appearance on t
             },
         }
     }
+    /**Get Account Locker Vaults Page
+
+Returns all the resource vaults associated with a given account locker.
+The returned response is in a paginated format, ordered by the most recent resource vault creation on the ledger.*/
+    pub fn account_locker_vaults_page(
+        &self,
+        account_address: &str,
+        locker_address: &str,
+    ) -> FluentRequest<'_, request::AccountLockerVaultsPageRequest> {
+        FluentRequest {
+            client: self,
+            params: request::AccountLockerVaultsPageRequest {
+                account_address: account_address.to_owned(),
+                at_ledger_state: None,
+                cursor: None,
+                limit_per_page: None,
+                locker_address: locker_address.to_owned(),
+            },
+        }
+    }
+    /**Get Most Recent Touch of Account Lockers
+
+Returns most recent state version given account locker has been touched. Touch refers to the creation of the account locker itself as well as any modification to its contents, such as
+resource claim, airdrop or store.*/
+    pub fn account_lockers_touched_at(
+        &self,
+        account_lockers: Vec<AccountLockerAddress>,
+    ) -> FluentRequest<'_, request::AccountLockersTouchedAtRequest> {
+        FluentRequest {
+            client: self,
+            params: request::AccountLockersTouchedAtRequest {
+                account_lockers,
+                at_ledger_state: None,
+            },
+        }
+    }
     /**Get Validators Uptime
 
 Returns validators uptime data for time range limited by `from_state_version` and `at_state_version`.*/
